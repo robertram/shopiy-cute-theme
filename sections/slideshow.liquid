@@ -80,8 +80,6 @@
         </span>
       </button>
 
-      HOLA
-
       {%- if section.settings.auto_rotate -%}
         <button
           type="button"
@@ -122,7 +120,6 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-        SLIDESHOW
         <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
           {%- if block.settings.image -%}
             {%- liquid
@@ -241,8 +238,6 @@
           {{- 'icon-caret.svg' | inline_asset_content -}}
         </span>
       </button>
-
-      HOLAA
 
       {%- if section.settings.auto_rotate -%}
         <button

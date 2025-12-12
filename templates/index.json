@@ -12,43 +12,25 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
-        "slide_8kJyYP": {
-          "type": "slide",
-          "settings": {
-            "image_overlay_opacity": 0,
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": true,
-            "box_align": "middle-center",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
-          }
-        },
         "slide-0": {
           "type": "slide",
           "settings": {
-            "image_overlay_opacity": 0,
             "heading": "Browse our latest products",
             "heading_size": "h1",
             "subheading": "",
             "button_label": "Shop all",
             "link": "shopify://collections/all",
             "button_style_secondary": true,
-            "show_text_box": true,
             "box_align": "middle-left",
+            "show_text_box": true,
             "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "slide_8kJyYP",
         "slide-0"
       ],
       "settings": {
@@ -65,18 +47,18 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "all",
-        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
         "columns_desktop": 4,
-        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
+        "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
