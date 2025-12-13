@@ -9,6 +9,9 @@
  */
 {
   "sections": {
+    "hero":{
+      "type":""
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -74,6 +77,7 @@
     }
   },
   "order": [
+    "hero", 
     "slideshow",
     "featured_collection"
   ]
