@@ -1,25 +1,78 @@
 <style>
   .hero {
+    padding: 50px 0;
   }
   .hero_container {
     display: flex;
     max-width: 1200px;
     margin: auto;
     height: 80vh;
+    padding: 0 20px;
+    position: relative;
   }
   .hero_text_container {
     max-width: 500px;
     margin: auto;
   }
 
-  .hero_title{
+  .hero_tagline {
+    background-color: oklch(89.9% 0.061 343.231);
+    color: oklch(52.5% 0.223 3.958);
+    padding: 7px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+    width: max-content;
+  }
+
+  .hero_title {
     font-size: 50px;
-    font-weight: 700;
+    font-weight: 800;
     margin: 0;
+  }
+
+  .cta_container {
+    display: flex;
+    flex: wrap;
+    gap: 10px;
+  }
+
+  .hero_cta {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 100px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    width: max-content;
+  }
+
+  .hero_cta_1 {
+    border: solid #fec83f 2px;
+    background-color: #fec83f;
+    color: black;
+  }
+  .hero_cta_1:hover {
+    background-color: rgba(254, 200, 63, 0.71);
+  }
+
+  .hero_cta_2 {
+    color: oklch(59.2% 0.249 0.584);
+    border: solid oklch(82.3% 0.12 346.018) 2px;
+  }
+  .hero_cta_2:hover {
+    opacity: 0.4;
   }
 
   .hero_image_container {
     margin: auto;
+    position: relative;
+    transform: rotate(4deg);
+    transition: transform 300ms;
+  }
+
+  .hero_image_container:hover {
+    transform: rotate(0deg);
   }
 
   .hero_image {
@@ -28,30 +81,134 @@
     border-radius: 1.5rem;
     padding: 2rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    transform: rotate(4deg);
-    transition: transform 300ms;
-    width: 600px;
+    width: 100%;
   }
 
-  .hero_image:hover {
-    transform: rotate(0deg);
+  .hero_image_note {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: oklch(82.3% 0.12 346.018);
+    color: oklch(52.5% 0.223 3.958);
+    padding: 7px 12px;
+    z-index: 3;
+    border-radius: 100px;
+    transform: rotate(-10deg);
+    transition: transform 300ms;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .floating_icon {
+    position: absolute;
+    font-size: 7rem;
+    pointer-events: none;
+    z-index: 1;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .floating_icon--star {
+    top: 20%;
+    left: 0%;
+    animation-delay: 0s;
+    color: rgba(var(--color-foreground), 0.25);
+  }
+
+  .floating_icon--bear {
+    top: 20%;
+    right: 50%;
+    animation-delay: 1.5s;
+    font-size: 5rem;
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  .floating_icon--bunny {
+    bottom: 10%;
+    right: 0%;
+    animation-delay: 1.5s;
+    font-size: 5rem;
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .hero_container {
+      display: block;
+      max-width: 1200px;
+      margin: auto;
+      height: auto;
+      padding-bottom: 70px;
+    }
+    .hero_image_container {
+      margin-top: 50px;
+    }
+
+    .hero_image {
+      display: flex;
+      margin: auto;
+      transform: rotate(0deg);
+      width: 100%;
+    }
+
+    .cta_container{
+      flex-direction: column;
+    }
+
+    .floating_icon {
+      font-size: 5rem;
+    }
+
+    .floating_icon--star {
+      top: 15%;
+      left: 5%;
+    }
+
+    .floating_icon--bear {
+      top: 65%;
+      right: 10%;
+    }
   }
 </style>
 
 <div class="hero">
   <div class="hero_container">
-    <div class="hero_text_container">
-      <h2 class="hero_title">{{ section.settings.title }}</h2>
+    <span class="floating_icon floating_icon--star">⭐</span>
+    <span class="floating_icon floating_icon--bear">🐻</span>
+    <span class="floating_icon floating_icon--bunny">🐰</span>
 
+    <div class="hero_text_container">
+      <p class="hero_tagline">{{ section.settings.tagline }}</p>
+      <h2 class="hero_title">{{ section.settings.title }}</h2>
       <div class="hero_description">
         {{ section.settings.description }}
       </div>
+
+      <div class="cta_container">
+        <a class="hero_cta hero_cta_1" href="{{ section.settings.hero_cta_link_1 }}">
+          {{- section.settings.hero_cta_text_1 -}}
+        </a>
+        <a class="hero_cta hero_cta_2" href="{{ section.settings.hero_cta_link_2 }}">
+          {{- section.settings.hero_cta_text_2 -}}
+        </a>
+      </div>
     </div>
     <div class="hero_image_container">
+      <p class="hero_image_note">¡Pieza única! 💝</p>
       <img
         class="hero_image"
         src="{{ section.settings.banner_image | image_url }}"
         alt="{{ section.settings.banner_image.alt | default: section.settings.title }}"
+
+        loading="lazy"
       >
     </div>
   </div>
@@ -61,6 +218,11 @@
 {
   "name": "hero",
   "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline"
+    },
     {
       "type": "text",
       "id": "title",
@@ -76,6 +238,26 @@
       "type": "image_picker",
       "id": "banner_image",
       "label": "Banner Image"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_link_1",
+      "label": "Hero CTA Link 1"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_text_1",
+      "label": "Hero CTA Text 1"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_link_2",
+      "label": "Hero CTA Link 2"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_text_2",
+      "label": "Hero CTA Text 2"
     }
   ]
 }
