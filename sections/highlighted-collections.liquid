@@ -1,0 +1,120 @@
+<style>
+  .highlighted_collections {
+    padding: 50px 0;
+  }
+  .highlighted_collections_container {
+    max-width: 1200px;
+    padding: 0 20px;
+    position: relative;
+    border: solid red 2px;
+  }
+  .highlighted_collections_text_container {
+  }
+
+  .highlighted_collections_title {
+    font-size: 50px;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .highlighted_collections_cards_container{
+    border: solid green 2px;
+  }
+
+  @media screen and (max-width: 800px) {
+    .highlighted_collections_container {
+      display: block;
+      max-width: 1200px;
+      margin: auto;
+      height: auto;
+      padding-bottom: 70px;
+    }
+  }
+</style>
+
+<div class="highlighted_collections">
+  <div class="highlighted_collections_container">
+    <div class="highlighted_collections_text_container">
+      <h2 class="highlighted_collections_title">{{ section.settings.title }}</h2>
+      <div class="highlighted_collections_description">
+        {{ section.settings.description }}
+      </div>
+    </div>
+
+    <div>
+      {% comment %}
+        {% for collection in collections %}
+          {{- collection.title | link_to: collection.url }}
+
+          {% render 'collection-card' %}
+        {% endfor %}
+      {% endcomment %}
+
+      <div class="highlighted_collections_cards_container">
+        {% for block in section.blocks %}
+          {% assign collection = block.settings.collection %}
+
+          {% if collection %}
+            <div class="collection-card">
+              <a href="{{ collection.url }}">
+                {% comment %} {% if collection.featured_image %}
+                  <img
+                    src="{{ collection.featured_image | image_url: width: 600 }}"
+                    alt="{{ collection.title }}"
+                    loading="lazy"
+                    class="collection_image"
+                  >
+                {% endif %} {% endcomment %}
+
+                <h3>{{ collection.title }}</h3>
+
+                {% if collection.description != blank %}
+                  <p>{{ collection.description | strip_html | truncate: 100 }}</p>
+                {% endif %}
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Highlighted Collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Nuestras Colecciones"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Encontrá tu personaje favorito y hacelo parte de tu familia</p>"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collections"
+    }
+  ]
+}
+{% endschema %}

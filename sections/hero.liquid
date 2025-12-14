@@ -207,7 +207,6 @@
         class="hero_image"
         src="{{ section.settings.banner_image | image_url }}"
         alt="{{ section.settings.banner_image.alt | default: section.settings.title }}"
-
         loading="lazy"
       >
     </div>
@@ -216,7 +215,7 @@
 
 {% schema %}
 {
-  "name": "hero",
+  "name": "Hero",
   "settings": [
     {
       "type": "text",

@@ -12,6 +12,9 @@
     "hero": {
       "type": "hero"
     },
+    "highlighted_collections": {
+      "type": "highlighted-collections"
+    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -79,6 +82,7 @@
   "order": [
     "hero",
     "slideshow",
-    "featured_collection"
+    "featured_collection", 
+    "highlighted_collections"
   ]
 }
