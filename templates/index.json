@@ -10,44 +10,16 @@
 {
   "sections": {
     "hero": {
-      "type": "hero"
-    },
-    "highlighted_collections": {
-      "type": "highlighted-collections"
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "blocks": {
-        "slide-0": {
-          "type": "slide",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "Shop all",
-            "link": "shopify://collections/all",
-            "button_style_secondary": true,
-            "box_align": "middle-left",
-            "show_text_box": true,
-            "text_alignment": "left",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide-0"
-      ],
+      "type": "hero",
       "settings": {
         "tagline": "Hecho con amorcito en Costa Rica",
-        "title": "Tazas que te abrazan el corazón",
+        "title": "Tazas que te abrazan el corazón",
         "description": "<p>Cada taza de barro es única como vos, con personajes adorables hechos a mano que le darán magia a tus mañanas ☕✨</p>",
         "banner_image": "shopify://shop_images/artisanal-clay-mug-with-cute-kawaii-animal-charact.jpg",
-        "hero_cta_link_1": "shopify://collections",
-        "hero_cta_text_1": "Ver todas las tazas",
-        "hero_cta_link_2": "shopify://collections/featured-collection",
-        "hero_cta_text_2": "Colecciones especiales"
+        "hero_cta_link_1": "",
+        "hero_cta_text_1": "",
+        "hero_cta_link_2": "",
+        "hero_cta_text_2": ""
       }
     },
     "featured_collection": {
@@ -77,12 +49,38 @@
         "padding_top": 16,
         "padding_bottom": 64
       }
+    },
+    "highlighted_collections": {
+      "type": "highlighted-collections",
+      "blocks": {
+        "collection_card_64YrpL": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "featured-collection",
+            "cta_text": "Explorar Colección"
+          }
+        },
+        "collection_card_tWyHK8": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "frontpage",
+            "cta_text": "Explorar Colección"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_64YrpL",
+        "collection_card_tWyHK8"
+      ],
+      "settings": {
+        "title": "Nuestras Colecciones",
+        "description": "<p>Encontrá tu personaje favorito y hacelo parte de tu familia</p>"
+      }
     }
   },
   "order": [
     "hero",
-    "slideshow",
-    "featured_collection", 
+    "featured_collection",
     "highlighted_collections"
   ]
 }
