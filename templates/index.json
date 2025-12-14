@@ -40,31 +40,31 @@
         "slide-0"
       ],
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "tagline": "Hecho con amorcito en Costa Rica",
+        "title": "Tazas que te abrazan el corazón",
+        "description": "<p>Cada taza de barro es única como vos, con personajes adorables hechos a mano que le darán magia a tus mañanas ☕✨</p>",
+        "banner_image": "shopify://shop_images/artisanal-clay-mug-with-cute-kawaii-animal-charact.jpg",
+        "hero_cta_link_1": "shopify://collections",
+        "hero_cta_text_1": "Ver todas las tazas",
+        "hero_cta_link_2": "shopify://collections/featured-collection",
+        "hero_cta_text_2": "Colecciones especiales"
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
+        "enable_desktop_slider": false,
         "full_width": false,
         "show_view_all": false,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
