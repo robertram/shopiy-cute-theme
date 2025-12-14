@@ -6,7 +6,7 @@
     max-width: 1200px;
     padding: 0 20px;
     position: relative;
-    border: solid red 2px;
+    margin: auto;
   }
   .highlighted_collections_text_container {
   }
@@ -17,8 +17,87 @@
     margin: 0;
   }
 
-  .highlighted_collections_cards_container{
-    border: solid green 2px;
+  .highlighted_collections_cards_container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .highlighted_collections_cards_container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .highlighted_collections_collection_card {
+    border-radius: 30px;
+    background: linear-gradient(to bottom right, #fce7f3, #fbcfe8);
+    padding: 20px;
+  }
+
+  .highlighted_collections_collection_card:nth-child(even) {
+    background: linear-gradient(to bottom right, #fef9c3, #fed7aa);
+  }
+
+  .highlighted_collections_collection_card_title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  .highlighted_collections_collection_card_cta {
+    font-size: 14px;
+    font-weight: 800;
+    color: oklch(64.6% 0.222 41.116);
+    background: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  .highlighted_collections_collection_card_cta:hover{
+    background-color: #f5c5b0
+  }
+
+  .highlighted_collections_icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+  }
+
+  .highlighted_collections_emojis {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .highlighted_collections_emoji {
+    font-size: 4rem;
+    display: inline-block;
+    animation: bounce 1.5s ease-in-out infinite;
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  .highlighted_collections_emoji_1 {
+    animation-delay: 0s;
+  }
+
+  .highlighted_collections_emoji_2 {
+    animation-delay: 0.3s;
+  }
+
+  .highlighted_collections_emoji_3 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
   @media screen and (max-width: 800px) {
@@ -55,23 +134,27 @@
           {% assign collection = block.settings.collection %}
 
           {% if collection %}
-            <div class="collection-card">
-              <a href="{{ collection.url }}">
-                {% comment %} {% if collection.featured_image %}
-                  <img
-                    src="{{ collection.featured_image | image_url: width: 600 }}"
-                    alt="{{ collection.title }}"
-                    loading="lazy"
-                    class="collection_image"
-                  >
-                {% endif %} {% endcomment %}
+            <div class="highlighted_collections_collection_card">
+              <div class="highlighted_collections_emojis">
+                <span class="highlighted_collections_emoji highlighted_collections_emoji_1">🐻</span>
+                <span class="highlighted_collections_emoji highlighted_collections_emoji_2">🐰</span>
+                <span class="highlighted_collections_emoji highlighted_collections_emoji_3">🐸</span>
+              </div>
 
-                <h3>{{ collection.title }}</h3>
+              <h3 class="highlighted_collections_collection_card_title">{{ collection.title }}</h3>
+              <p class="highlighted_collections_collection_card_description">
+                Ositos, conejitos, ranitas y más amiguitos que te van a hacer sonreír cada día 🥺
+              </p>
 
+              <a class="highlighted_collections_collection_card_cta" href="{{ collection.url }}">
+                {{- block.settings.cta_text -}}
+                {% render 'icon-right-arrow', class: 'highlighted_collections_icon' %}
+              </a>
+              {% comment %}
                 {% if collection.description != blank %}
                   <p>{{ collection.description | strip_html | truncate: 100 }}</p>
                 {% endif %}
-              </a>
+              {% endcomment %}
             </div>
           {% endif %}
         {% endfor %}
@@ -107,6 +190,12 @@
           "type": "collection",
           "id": "collection",
           "label": "Select collection"
+        }, 
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Explorar Colección"
         }
       ]
     }
