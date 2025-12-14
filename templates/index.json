@@ -22,6 +22,33 @@
         "hero_cta_text_2": ""
       }
     },
+    "highlighted_collections": {
+      "type": "highlighted-collections",
+      "blocks": {
+        "collection_card_64YrpL": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "featured-collection",
+            "cta_text": "Explorar Colección"
+          }
+        },
+        "collection_card_tWyHK8": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "frontpage",
+            "cta_text": "Explorar Colección"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_64YrpL",
+        "collection_card_tWyHK8"
+      ],
+      "settings": {
+        "title": "Nuestras Colecciones",
+        "description": "<p>Encontrá tu personaje favorito y hacelo parte de tu familia</p>"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -49,38 +76,11 @@
         "padding_top": 16,
         "padding_bottom": 64
       }
-    },
-    "highlighted_collections": {
-      "type": "highlighted-collections",
-      "blocks": {
-        "collection_card_64YrpL": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "featured-collection",
-            "cta_text": "Explorar Colección"
-          }
-        },
-        "collection_card_tWyHK8": {
-          "type": "collection_card",
-          "settings": {
-            "collection": "frontpage",
-            "cta_text": "Explorar Colección"
-          }
-        }
-      },
-      "block_order": [
-        "collection_card_64YrpL",
-        "collection_card_tWyHK8"
-      ],
-      "settings": {
-        "title": "Nuestras Colecciones",
-        "description": "<p>Encontrá tu personaje favorito y hacelo parte de tu familia</p>"
-      }
     }
   },
   "order": [
     "hero",
-    "featured_collection",
-    "highlighted_collections"
+    "highlighted_collections",
+    "featured_collection"
   ]
 }
